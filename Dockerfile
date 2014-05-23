@@ -18,7 +18,7 @@ ADD http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip /sel
 RUN unzip /selenium/chromedriver_linux64.zip -d /selenium
 RUN echo deb http://dl.google.com/linux/chrome/deb/ stable main >> /etc/apt/sources.list.d/google-chrome.list
 RUN apt-get update
-RUN apt-get install xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic
+RUN apt-get install  libfontenc1 libfreetype6 libxfont1 x11-common xfonts-100dpi xfonts-75dpi xfonts-cyrillic xfonts-encodings xfonts-scalable xfonts-utils
 RUN apt-get install -q -y default-jre google-chrome-stable xvfb
 
 ADD http://selenium-release.storage.googleapis.com/2.41/selenium-server-standalone-2.41.0.jar /selenium/
