@@ -1,6 +1,6 @@
-FROM base
+FROM ubuntu
 
-MAINTAINER Joseph McElroy "joe@teneleven.co.uk"
+MAINTAINER Jeremy Seago "seagoj@gmail.com"
 
 # add security package sources so that we have the latest version of libnss ( required from google-chrome )
 
@@ -24,5 +24,6 @@ RUN apt-get install -q -y default-jre google-chrome-stable xvfb
 ADD http://selenium-release.storage.googleapis.com/2.41/selenium-server-standalone-2.41.0.jar /selenium/
 
 EXPOSE 4444
+EXPOSE 9222
 
 CMD ["/usr/local/bin/start-selenium-server.sh"]
