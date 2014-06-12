@@ -8,12 +8,6 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -y -q install wget ca-certificates
 
 # Prepare sources
-# RUN echo "deb http://security.ubuntu.com/ubuntu precise-security main restricted" >> /etc/apt/sources.list
-# RUN echo "deb-src http://security.ubuntu.com/ubuntu precise-security main restricted" >> /etc/apt/sources.list
-# RUN echo "deb http://security.ubuntu.com/ubuntu precise-security universe" >> /etc/apt/sources.list
-# RUN echo "deb-src http://security.ubuntu.com/ubuntu precise-security universe" >> /etc/apt/sources.list
-# RUN echo "deb http://security.ubuntu.com/ubuntu precise-security multiverse" >> /etc/apt/sources.list
-# RUN echo "deb-src http://security.ubuntu.com/ubuntu precise-security multiverse" >> /etc/apt/sources.list
 RUN wget -q -O - "https://dl-ssl.google.com/linux/linux_signing_key.pub" | apt-key add -
 RUN echo "deb http://security.ubuntu.com/ubuntu precise-security main" >> /etc/apt/sources.list
 RUN echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/sources.list
