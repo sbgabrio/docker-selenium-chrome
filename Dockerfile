@@ -12,8 +12,8 @@ RUN wget -q -O - "https://dl-ssl.google.com/linux/linux_signing_key.pub" | apt-k
 RUN echo "deb http://security.ubuntu.com/ubuntu precise-security main" >> /etc/apt/sources.list
 RUN echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/sources.list
 RUN apt-get update
-RUN dpkg --configure -a
-RUN apt-get install -f
+# RUN dpkg --configure -a
+# RUN apt-get install -f
 
 # Upstart workaround
 RUN dpkg-divert --local --rename --add /sbin/initctl
