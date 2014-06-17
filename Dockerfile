@@ -5,7 +5,7 @@ MAINTAINER Jeremy Seago "seagoj@gmail.com"
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install base utilities
-RUN apt-get -y -q install wget ca-certificates
+RUN apt-get -y -q install wget ca-certificates apparmor-profiles
 
 # Prepare sources
 RUN wget -q -O - "https://dl-ssl.google.com/linux/linux_signing_key.pub" | apt-key add -
@@ -29,7 +29,8 @@ RUN unzip chromedriver_linux64.zip
 RUN mv chromedriver /usr/local/bin
 RUN wget "http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.2.jar"
 RUN mv selenium-server-standalone-2.42.2.jar /usr/local/bin
-RUN ADD /vagrant/install/usr/local/bin/start-selenium-server.sh /usr/local/bin/start-selenium-server.sh
+ADD install/usr/local/bin/start-selenium-server.sh /usr/local/bin/start-selenium-server.sh
+ADD install/etc/init.d/xvfb /etc/init.d/xvfb
 
 # # Start Xvfb, Chrome, and Selenium in the background
 # RUN export DISPLAY=:10
