@@ -1,11 +1,11 @@
-FROM base
+FROM stackbrew/ubuntu:saucy
 
 MAINTAINER Jeremy Seago "seagoj@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install base utilities
-RUN apt-get -y -q install wget ca-certificates apparmor-profiles
+RUN apt-get -y update && apt-get -y -q install wget ca-certificates
 
 # Prepare sources
 RUN wget -q -O - "https://dl-ssl.google.com/linux/linux_signing_key.pub" | apt-key add -
@@ -16,8 +16,8 @@ RUN apt-get update
 # RUN apt-get install -f
 
 # Upstart workaround
-RUN dpkg-divert --local --rename --add /sbin/initctl
-RUN ln -s /bin/true /sbin/initctl
+# RUN dpkg-divert --local --rename --add /sbin/initctl
+# RUN ln -s /bin/true /sbin/initctl
 
 # Install utilities from sources
 RUN apt-get -y install libnss3-1d dbus dpkg openjdk-7-jre google-chrome-stable xvfb unzip
