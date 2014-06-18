@@ -1,7 +1,5 @@
 FROM stackbrew/ubuntu:saucy
-
 MAINTAINER Jeremy Seago "seagoj@gmail.com"
-
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install base utilities
