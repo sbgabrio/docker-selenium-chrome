@@ -1,7 +1,5 @@
 FROM stackbrew/ubuntu:saucy
-
 MAINTAINER Jeremy Seago "seagoj@gmail.com"
-
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install base utilities
@@ -29,17 +27,11 @@ RUN unzip chromedriver_linux64.zip
 RUN mv chromedriver /usr/local/bin
 RUN wget "http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.2.jar"
 RUN mv selenium-server-standalone-2.42.2.jar /usr/local/bin
-ADD install/usr/local/bin/start-selenium-server.sh /usr/local/bin/start-selenium-server.sh
-ADD install/etc/init.d/xvfb /etc/init.d/xvfb
-
-# # Start Xvfb, Chrome, and Selenium in the background
-# RUN export DISPLAY=:10
-# RUN Xvfb :10 -screen 0 1366x768x24 -ac &
-# RUN google-chrome --remote-debugging-port=9222 &
-# RUN nohup java -jar /usr/local/bin/selenium-server-standalone-2.42.2.jar &
+Add files /
+# ADD install/usr/local/bin/start-selenium-server.sh /usr/local/bin/start-selenium-server.sh
+# ADD install/etc/init.d/xvfb /etc/init.d/xvfb
 
 # Forward ports
-EXPOSE 4444
-EXPOSE 9222
+EXPOSE 4444 9222
 
 CMD ["/usr/local/bin/start-selenium-server.sh"]
