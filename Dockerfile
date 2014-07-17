@@ -1,5 +1,4 @@
-# FROM stackbrew/ubuntu:saucy
-FROM base
+FROM dockerfile/ubuntu
 MAINTAINER Joseph M. "joe@teneleven.co.uk"
 ENV DEBIAN_FRONTEND noninteractive
 
