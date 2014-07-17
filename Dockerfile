@@ -11,10 +11,6 @@ RUN echo "deb http://security.ubuntu.com/ubuntu precise-security main" >> /etc/a
 RUN echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/sources.list
 RUN apt-get -y update
 
-# Upstart workaround
-RUN dpkg-divert --local --rename --add /sbin/initctl
-RUN ln -s /bin/true /sbin/initctl
-
 # Install utilities from sources
 RUN apt-get -y install libnss3-1d dbus dpkg openjdk-7-jre google-chrome-stable xvfb unzip apparmor-utils
 RUN apt-get -y update
