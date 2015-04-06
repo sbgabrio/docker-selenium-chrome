@@ -1,4 +1,4 @@
-FROM dockerfile/ubuntu
+FROM ubuntu
 MAINTAINER Joseph M. "joe@teneleven.co.uk"
 ENV DEBIAN_FRONTEND noninteractive
 
