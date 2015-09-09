@@ -17,11 +17,11 @@ RUN apt-get -y update
 
 # # Download and copy the ChromeDriver to /usr/local/bin
 RUN cd /tmp
-RUN wget "http://chromedriver.storage.googleapis.com/2.9/chromedriver_linux64.zip"
+RUN wget "http://chromedriver.storage.googleapis.com/2.15/chromedriver_linux64.zip"
 RUN unzip chromedriver_linux64.zip
 RUN mv chromedriver /usr/local/bin
-RUN wget "http://selenium-release.storage.googleapis.com/2.42/selenium-server-standalone-2.42.2.jar"
-RUN mv selenium-server-standalone-2.42.2.jar /usr/local/bin
+RUN wget "http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar"
+RUN mv selenium-server-standalone-2.45.0.jar /usr/local/bin
 ADD files /
 
 # Forward ports
