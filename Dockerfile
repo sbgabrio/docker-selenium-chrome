@@ -17,7 +17,7 @@ RUN apt-get -y update
 
 # # Download and copy the test jar to /usr/local/bin
 RUN cd /usr/local/bin
-RUN wget "https://github.com/sbgabrio/gs2020/archive/master.zip"
+RUN wget "https://github.com/sbgabrio/gs2020/archive/jtf.zip"
 RUN unzip master.zip
 
 # Add a chrome user and setup home dir.
