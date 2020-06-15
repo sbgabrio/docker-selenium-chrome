@@ -1,5 +1,5 @@
 FROM ubuntu
-MAINTAINER Joseph M. "joe@teneleven.co.uk"
+
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install base utilities
@@ -12,19 +12,16 @@ RUN echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/so
 RUN apt-get -y update
 
 # Install utilities from sources
-RUN apt-get -y install libnss3-1d dbus dpkg openjdk-7-jre google-chrome-stable xvfb unzip apparmor-utils
+RUN apt-get -y install libnss3-1d libnss3-tools dbus dpkg openjdk-8-jre google-chrome-stable xvfb git unzip apparmor-utils
 RUN apt-get -y update
 
-# # Download and copy the ChromeDriver to /usr/local/bin
-RUN cd /tmp
-RUN wget "http://chromedriver.storage.googleapis.com/2.15/chromedriver_linux64.zip"
-RUN unzip chromedriver_linux64.zip
-RUN mv chromedriver /usr/local/bin
-RUN wget "http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar"
-RUN mv selenium-server-standalone-2.45.0.jar /usr/local/bin
-ADD files /
+# # Download and copy the test jar to /usr/local/bin
+RUN cd /usr/local/bin
+RUN wget "https://github.com/sbgabrio/gs2020/archive/master.zip"
+RUN unzip master.zip
+
 
 # Forward ports
 EXPOSE 4444 9222
 
-CMD ["/usr/local/bin/start-selenium-server.sh"]
+CMD ["/usr/local/bin/start.sh"]
