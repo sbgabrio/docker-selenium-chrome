@@ -20,8 +20,12 @@ RUN cd /usr/local/bin
 RUN wget "https://github.com/sbgabrio/gs2020/archive/master.zip"
 RUN unzip master.zip
 
+# Add a chrome user and setup home dir.
+RUN groupadd --system chrome && \
+    useradd --system --create-home --gid chrome --groups audio,video chrome && \
+    mkdir --parents /home/chrome/reports && \
+    chown --recursive chrome:chrome /home/chrome
 
-# Forward ports
-EXPOSE 4444 9222
+USER chrome
 
 CMD ["/usr/local/bin/start.sh"]
