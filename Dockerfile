@@ -12,7 +12,7 @@ RUN echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/so
 RUN apt-get -y update
 
 # Install utilities from sources
-RUN apt-get -y install libnss3-1d libnss3-tools dbus dpkg openjdk-8-jre google-chrome-stable xvfb git unzip apparmor-utils
+RUN apt-get -y install libnss3-1d libnss3-tools dbus dpkg openjdk-8-jre google-chrome-stable xvfb unzip apparmor-utils
 RUN apt-get -y update
 
 # # Download and copy the test jar to /usr/local/bin
